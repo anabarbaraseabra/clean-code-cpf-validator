@@ -1,10 +1,10 @@
-package com.anaseabra.cpfvalidator;
+package com.anaseabra.cursoCleanCode;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CpfvalidatorApplicationTests {
+class CursoCleanCodeApplicationTests {
 
 	@Test
 	void contextLoads() {

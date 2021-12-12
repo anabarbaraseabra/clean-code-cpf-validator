@@ -1,4 +1,4 @@
-package com.anaseabra.cpfvalidator;
+package com.anaseabra.cursoCleanCode.CpfValidator;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -12,7 +12,7 @@ public class CpfValidatorTests {
     private CpfValidator cpfValidator;
 
     @Test
-    void testCpfValidator_validCpf () throws Exception {
+    void testCpfValidator_validCpf () {
         String cpf = "120.713.896-70";
         boolean validate = cpfValidator.validateCpf(cpf);
         Assertions.assertTrue(validate);
@@ -26,8 +26,35 @@ public class CpfValidatorTests {
     }
 
     @Test
-    void testCpfValidator_invalidCpf() throws Exception {
+    void testCpfValidator_cpfWithEqualsCharacters() {
         String cpf = "11111111111";
+
+        boolean validate = cpfValidator.validateCpf(cpf);
+
+        Assertions.assertFalse(validate);
+    }
+
+    @Test
+    void testCpfValidator_invalidCpf() {
+        String cpf = "12345678911";
+
+        boolean validate = cpfValidator.validateCpf(cpf);
+
+        Assertions.assertFalse(validate);
+    }
+
+    @Test
+    void testCpfValidator_invalidCpfWithLetter() {
+        String cpf = "123456789a31";
+
+        boolean validate = cpfValidator.validateCpf(cpf);
+
+        Assertions.assertFalse(validate);
+    }
+
+    @Test
+    void testCpfValidator_stringCpfNull() {
+        String cpf = null;
 
         boolean validate = cpfValidator.validateCpf(cpf);
 
